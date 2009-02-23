@@ -1,0 +1,41 @@
+PyPPP is a python library which implements [PPP](https://www.grc.com/ppp.htm "Perfect Paper Passwords") (Perfect Paper Passwords) which is a single-use "passcode" system design to go into multi-factor authentication systems. It also contains a authentication system which works with the [Django web framework](http://www.djangoproject.com/).
+
+This library implements version 3.1 of the PPP Specification by the Gibson Research Corporation (GRC)
+
+### Downloading PyPPP
+You can download PyPPP from the [git repository](http://github.com/kylef/pyppp/) or from the [zip file](http://media.kylefuller.co.uk/projects/pyppp/pyppp-1.0.zip).
+
+### Installation
+#### Using a package-management tool
+The easiest way by far to install PyPPP and most other interesting Python software is by using an automated package-management tool, if you're not already familiar with the available package management tools Python. Now's is a good time to get started.
+
+One option is [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall), you can refer to its documentation to see how to get it set up. Once you've got it, you'll be able to type:
+
+    easy_install pyppp
+
+Another more popular option is [pip](http://pypi.python.org/pypi/pip/). Once again, refer to its documentation to get pip up and running, but once you have pip all setup and installed, you'll be able to type:
+
+    pip install pyppp
+
+#### Installing PyPPP from git
+If you have git installed on your computer, you can obtain the latest version of pyppp by typing::
+
+    git clone git://github.com/kylef/pyppp.git
+
+Inside the resulting "pyppp" directory will be a directory called "pyppp", which is the Python module for PyPPP; you can symlink this from your Python path, or if you prefer use setup.py (more on that in Manually installing). You could also directly copy pyppp to your Python path, but this is not recommended. Symbolic links is one of the best ways for easy upgrading, at a later date, all you need to do is run ``git pull`` from inside pyppp folder.
+
+#### Manually installing
+To manually install PyPPP, you will first need to download PyPPP. You can find a link for this in the Downloading PyPPP section above. Once you have a copy of PyPPP, open it and run::
+
+    python setup.py install
+
+This will instal PyPPP and will require administrative privileges on your computer as it is a system-wide install.
+
+### Using PyPPP
+PyPPP is very easy to use, everything you need is wrapped in an object, which you either pass the AES key to at the start, or you can tell it to generate a random key for you.
+
+    :::python
+    from pyppp import PyPPP
+    p = PyPPP('8B2C8B6781D72852D8A4485425774794896B95A98526054EC79F39D106A6D82F')
+    passcode = p.retrieve_passcode(0) # To retrieve the first passcode
+    card = p.retrieve_card(1) # To retrieve the first card (returns a list)

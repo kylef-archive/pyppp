@@ -1,0 +1,21 @@
+{% extends 'pyppp/base.html' %}
+{% load i18n %}
+
+{% block content %}
+{% if form.errors %}<h3>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h3>
+{% if form.non_field_errors %}<ul>{{ form.non_field_errors.as_ul }}</ul>{% endif %}
+{% endif %}
+
+<form action='.' method='post'>    
+    <input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
+    {{ previous_fields|safe }}
+    {% for field in form %}
+        {% if field.is_hidden %}{{ field }}{% else %}
+        <p{% if field.errors %} class="error"{% endif %}>
+            {% if field.errors %}{{ field.errors }}{% endif %}
+            {{ field.label_tag }} {{ field }}
+        </p>{% endif %}
+    {% endfor %}
+    <p><input type="submit" value="Submit" /></p>
+</form>
+{% endblock %}

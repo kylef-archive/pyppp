@@ -1,0 +1,28 @@
+{% extends 'pyppp/base.html' %}
+
+{% block content %}
+  {% for card in card_list %}
+    <table cellspacing="0">
+        <tr class="header">
+            <td colspan="7" class="title">{{ name }}</td>
+            <td class="card">1</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            {% for column in columns_on_card %}<th>{{ column }}</th>{% endfor %}
+            <th class="extra"></th>
+        </tr>
+        {% for row in card %}
+        <tr class="{% cycle odd,even %} {% cycle top,n,n,n,n,n,n,n,n,n %}">
+            <td class="line">{% cycle 1,2,3,4,5,6,7,8,9,10 %}</td>
+            {% for code in row %}<td class="code">{{ code }}</td>{% endfor %}
+            <td class="extra"></td>
+        </tr>
+        {% endfor %}
+        <tr class="extra">
+            <td class="extra"></td>
+        </tr>
+    </table>
+  {% endfor %}
+{% endblock %}
