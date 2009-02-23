@@ -3,6 +3,6 @@
 - [Django](/projects/pyppp/django/)
 
 #### Download
-- [pyppp.zip](http://media.kylefuller.co.uk/projects/pyppp/pyppp-1.0.zip)
-- [pyppp.tar.gz](http://media.kylefuller.co.uk/projects/pyppp/pyppp-1.0.tar.gz)
+- [Zip Archive](http://github.com/kylef/pyppp/zipball/master)
+- [Tarball](http://github.com/kylef/pyppp/tarball/master)
 - [Git](http://github.com/kylef/pyppp/)

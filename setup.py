@@ -9,7 +9,7 @@ setup(
     author='Kyle Fuller',
     author_email='inbox@kylefuller.co.uk',
     url='http://kylefuller.co.uk/projects/pyppp/',
-    download_url='http://media.kylefuller.co.uk/pyppp/pyppp-%s.zip' % lithium.__version__,
+    download_url='http://github.com/kylef/pyppp/zipball/master',
     packages=['pyppp', 'pyppp.django'],
     package_data={'pyppp.django': ['templates/pyppp/*.html']},
     license='BSD',
