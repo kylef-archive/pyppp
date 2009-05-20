@@ -23,3 +23,14 @@ def card(request, card=None):
         'lines_per_card': range(ppp.lines_per_card + 1)[1:]
     })
 card = login_required(card)
+
+#@login_required
+def info(request):
+    ppp = UserPPP.objects.get_or_create(user=request.user)[0]
+    
+    return render_to_response('pyppp/info.html', {
+        'request': request,
+        'ppp': ppp,
+        'key': ppp.key,
+    }, context_instance=RequestContext(request))
+info = login_required(info)
