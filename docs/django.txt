@@ -1,17 +1,35 @@
-### Using PyPPP with a Django Project
+.. _django:
 
-Once you've installed PyPPP and want to use it in your Django applications, do the following:
+Using PyPPP with a Django Project
+=================================
 
-1. Add ``pyppp.django`` to the ``INSTALLED_APPS`` setting of your Django project.
-2. Add ``'pyppp.django.backends.PPPBackend'`` to ``AUTHENTICATION_BACKENDS`` in the settings.py file for your Django project. You're settings.py should look something like:
-    ```AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.ModelBackend',
-        'pyppp.django.backends.PPPBackend',
-    )```
-3. Change ``LOGIN_URL`` to ``/ppp/login/`` to your settings.py.
-4. Change ``LOGOUT_URL`` to ``/ppp/logout/`` to your settings.py.
-5. Create the necessary templates (there are examples included).
-6. Add this line to your site's root URLConf: ``(r'^ppp/', include('pyppp.django.urls')),``
-7. Now all that is left to do, is run ``python manage.py syncdb`` on your project so that the PPP Users table is added to the database.
+Once you've installed PyPPP and want to use it in your Django applications, do the following;
+
+    #. Add ``'pyppp.django'`` to the ``'INSTALLED_APPS'`` setting of your Django project.
+    
+    #. Add ``'pyppp.django.backends.PPPBackend'`` to ``AUTHENTICATION_BACKENDS`` in your project's ``settings.py``:
+    
+	    .. code-block:: python
+	    
+		    AUTHENTICATION_BACKENDS = (
+			    'django.contrib.auth.backends.ModelBackend',
+			    'pyppp.django.backends.PPPBackend',
+		    )
+	
+    #. Change ``'LOGIN_URL'`` to ``'/ppp/login/'`` to your ``settings.py``.
+    
+    #. Change ``'LOGOUT_URL'`` to ``'/ppp/logout/'`` to your ``settings.py``.
+    
+    #. Run ``manage.py syncdb`` so that Django will create the post tables.
+    
+    #. Add the  URLs to your project's ``urls.py``:
+    
+	    .. code-block:: python
+	    
+		    urlpatterns = patterns('',
+			    ...
+			    url(r'^ppp/', include('pyppp.django.urls')),
+			    ...
+		    )
 
 Once you have installed and added PyPPP to your Django project, you can use the url ``/ppp/card/`` to grab the current card. Login using PPP at: ``/ppp/login/``, and logout at ``/ppp/logout/``.

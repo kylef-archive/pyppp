@@ -1,0 +1,22 @@
+PyPPP
+=====
+
+PyPPP is a python library which implements `PPP`_ (Perfect Paper Passwords) which is a single-use "passcode" system design to go into multi-factor authentication systems. It also contains a authentication system which works with the `Django web framework`_.
+
+.. _PPP: https://www.grc.com/ppp.htm
+.. _Django web framework: http://www.djangoproject.com/
+
+First steps
+-----------
+
+    * :ref:`Download <download>`
+    * :ref:`Installation <install>`
+    * :ref:`Using PyPPP <use>`
+    * :ref:`Using PyPPP with Django <django>`
+
+Getting Help
+------------
+
+If you have any problems with PyPPP, or have any suggestions you can contact `kylef`_.
+
+.. _kylef: http://kylefuller.co.uk/contact/

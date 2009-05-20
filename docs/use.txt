@@ -1,0 +1,88 @@
+.. _use:
+
+Using PyPPP
+===========
+
+PyPPP is very easy to use, everything you need is wrapped in an object, which you either pass the AES key to at the start, or you can tell it to generate a random key for you.
+
+.. code-block:: python
+
+    from pyppp import PyPPP
+    p = PyPPP('8B2C8B6781D72852D8A4485425774794896B95A98526054EC79F39D106A6D82F')
+    passcode = p.retrieve_passcode(0) # To retrieve the first passcode
+    card = p.retrieve_card(1) # To retrieve the first card (returns a list)
+
+pyppp.PyPPP Class
+-----------------
+
+``__init__``
+~~~~~~~~~~~~
+
+The init method optionally takes a key, if you do not pass the object a key here, you will have to use ``generate_random_sequence_key`` to generate a key.
+
+This method expects the key to be in hex and 64 characters long.
+
+.. code-block:: python
+
+    from pyppp import PyPPP
+    p = PyPPP('8B2C8B6781D72852D8A4485425774794896B95A98526054EC79F39D106A6D82F')
+
+``generate_random_sequence_key``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``generate_random_sequence_key`` is used to generate a sequence key, depending on your python version and operating system, this may be done differently.
+
+If you are using python >2.4, the random_sequence key will be generated from the operating system, on UNIX-like system's this will use ``/dev/urandom``, on Windows it will use ``CryptGenRandom``. If a randomness source is not found, python's random.randint will be used, random.randint is completely deterministic, it is not recommended. If you do not have os.urandom, you should upgrade to a later python and/or operating system. Or change the source code to generate a random number.
+
+.. code-block:: python
+
+    >>> from pyppp import PyPPP
+    >>> p = PyPPP()
+    >>> p.generate_random_sequence_key()
+    >>> print p.key()
+        '6c065d008eeaa624e529d83aa02a53df46fdb553870f5bec5ee9b081f69e6ded'
+
+``retrieve_passcode``
+~~~~~~~~~~~~~~~~~~~~~
+
+This method allows you to get the passcode from a count, for example:
+
+.. code-block:: python
+
+    >>> print p.retrieve_passcode(0)
+        B%UX
+
+``retrieve_passcodes``
+~~~~~~~~~~~~~~~~~~~~~~
+
+This method allows you to get a range passcodes, for example:
+
+.. code-block:: python
+
+    >>> print p.retrieve_passcodes(0, 4) # Retrieve 5 passcodes (0 to 4)
+        ['B%UX', 'rUqx', 'v4d!', '#kAu', 'cx2u']
+
+``retrieve_card``
+~~~~~~~~~~~~~~~~~
+
+This method allows you to get a range passcodes, for example:
+
+.. code-block:: python
+
+    >>> print p.retrieve_card(1)
+        ['B%UX', 'rUqx', 'v4d!', '#kAu', ..., 'N5bX', 'Li4N', 'LLw#', 'GHA+']
+
+``get_sequence_info``
+~~~~~~~~~~~~~~~~~~~~~
+
+The easiest way to get information on a sequence is using ``get_sequence_info``
+
+.. code-block:: python
+
+    >>> info = p.get_sequence_info(7234)
+    >>> print info['card']
+        104
+    >>> print info['column']
+        D
+    >>> print info['row']
+        4

@@ -1,8 +1,0 @@
-#### Pages
-- [Overview](/projects/pyppp/)
-- [Django](/projects/pyppp/django/)
-
-#### Download
-- [Zip Archive](http://github.com/kylef/pyppp/zipball/master)
-- [Tarball](http://github.com/kylef/pyppp/tarball/master)
-- [Git](http://github.com/kylef/pyppp/)

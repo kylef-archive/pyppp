@@ -1,0 +1,60 @@
+.. _install:
+
+Quick install guide
+===================
+
+Directly from the git repository
+--------------------------------
+
+This is the preferred way to install PyPPP, but it does require the git source code repository system to be installed on your computer, although this is the preferred way, if you do not already have git. It will be easier to install via the other options. Some of the commands used in this are only available on UNIX-alike systems, it may not work on windows.
+
+It is very easy to install PyPPP via git, first you need to open a terminal. Then type the following after first using ``cd`` command to move into the directory you wish to install PyPPP in. I use the location: ``/home/kylef/git/`` to install PyPPP in.
+
+.. code-block:: bash
+
+    $ git clone git://github.com/kylef/pyppp.git
+    $ ln -s pyppp/pyppp <PYTHONPATH>
+
+.. note:
+
+    In the last command you will need to change <PYTHONPATH> to a path in your PYTHONPATH, a path which Python has recognized to have python modules within.
+
+Using a package-management tool
+-------------------------------
+
+This is one of the easiest ways to install PyPPP. There are two different package-management tools which you could use:
+
+pip
+~~~
+
+pip is one of the more popular package-management systems for python. You can find documentation, and how to install `pip itself here`_.  Once you have pip installed and running, simply type:
+
+.. code-block:: bash
+
+    $ pip install pyppp
+
+easy_install
+~~~~~~~~~~~~
+
+Another option is to use easy_install, first you need to install easy_install. You can find documentation and how to install `easy_install here`_. Once you have easy_install up and running, just type:
+
+.. code-block:: bash
+
+    $ easy_install pyppp
+
+.. _pip itself here: http://pypi.python.org/pypi/pip/
+.. _easy_install here: http://peak.telecommunity.com/DevCenter/EasyInstall
+
+Manually installing
+-------------------
+
+To manually install PyPPP, you will first need to download PyPPP (`zip`_, or `tar.gz`_). Once you have a copy of PyPPP, open it and run:
+
+.. code-block:: bash
+
+    $ python setup.py install
+
+This will install lithium and will require administrative privileges on your computer as it is a system-wide install.
+
+.. _zip: http://github.com/kylef/pyppp/zipball/master
+.. _tar.gz: http://github.com/kylef/pyppp/tarball/master
