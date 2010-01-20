@@ -19,7 +19,7 @@ You can download the latest version in a archive created directly from the git r
 Via git repository
 ~~~~~~~~~~~~~~~~~~
 
-Git is one of the best ways to download Lithium, it allows you to easily pull the latest version of Lithium, just by typing ``git pull`` within the lithium directory. It will also allow you to download the complete history of lithium's source code, to download git or how to use it. See: http://git-scm.com/
+Git is one of the best ways to download pyppp, it allows you to easily pull the latest version of pypp, just by typing ``git pull`` within the pyppp directory. It will also allow you to download the complete history of pyppp's source code, to download git or how to use it. See: http://git-scm.com/
 
 You can use the following command to clone the git repository:
 

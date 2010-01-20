@@ -54,7 +54,7 @@ To manually install PyPPP, you will first need to download PyPPP (`zip`_, or `ta
 
     $ python setup.py install
 
-This will install lithium and will require administrative privileges on your computer as it is a system-wide install.
+This will install pyppp and will require administrative privileges on your computer as it is a system-wide install.
 
 .. _zip: http://github.com/kylef/pyppp/zipball/master
 .. _tar.gz: http://github.com/kylef/pyppp/tarball/master
